@@ -14,15 +14,15 @@ function RootStack() {
         headerStyle: { backgroundColor: 'tomato' },
       }}
     >
-      <Stack.Screen name="login" component={LoginScreen}
-        options={{ title: 'Login' }} />
+    <Stack.Screen name="login" component={LoginScreen}
+      options={{ title: 'Login' }} />
 
-      <Stack.Screen name="home" component={HomeScreen}
-        options={{ title: 'Home' }} />
+    <Stack.Screen name="home" component={HomeScreen}
+      options={{ title: 'Home' }} />
 
-      <Stack.Screen name="cadUsu" component={CadusuarioScreen}
-        options={{ title: 'Cadastro de Usúario' }} />
-        
+    <Stack.Screen name="cadUsu" component={CadusuarioScreen}
+      options={{ title: 'Cadastro de Usúario' }} />
+
     <Stack.Screen name="recSenha" component={RecSenhaScreen}
       options={{ title: 'Recuperação de Senha' }} />
     </Stack.Navigator>
