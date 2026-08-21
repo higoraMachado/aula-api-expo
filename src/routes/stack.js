@@ -26,7 +26,7 @@ function RootStack() {
       options={{ title: 'Login' }} />
 
     <Stack.Screen name="home" component={TabNavigator}
-      options={{ title: 'Home' }} />
+      options={{ title: 'Home', headerShown:false }} />
 
     <Stack.Screen name="cadUsu" component={CadusuarioScreen}
       options={{ title: 'Cadastro de Usúario' }} />
