@@ -1,10 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// npm i @expo/vector-icons
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../telas/home';
 import PerfilScreen from '../telas/perfil';
-import ItensScreen from '../telas/itens';
+import ItemScreen from '../telas/item';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,41 +11,72 @@ export default function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        // tabBarShowLabel: false, // Oculta o texto de todas as abas
-        // tabBarLabelPosition: 'beside-icon' 
-        tabBarLabelStyle: {
-          fontSize: 16,
-          fontFamily: 'Georgia',
-          fontWeight: 300,
+        headerStyle: {
+          backgroundColor: '#111111',
         },
+
+        headerTintColor: '#ffffff',
+
+        tabBarStyle: {
+          backgroundColor: '#111111',
+          borderTopWidth: 0,
+          height: 65,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+
+        tabBarActiveTintColor: '#D4AF37',
+        tabBarInactiveTintColor: '#888888',
+
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          // Define o ícone baseado no nome da rota
           if (route.name === 'home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'perfil') {
             iconName = focused ? 'person' : 'person-outline';
           } else if (route.name === 'itens') {
-            iconName = focused ? 'list' : 'list-outline';
+            iconName = focused ? 'calendar' : 'calendar-outline';
           }
 
-          // Retorna o componente visual do ícone
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return (
+            <Ionicons
+              name={iconName}
+              size={size}
+              color={color}
+            />
+          );
         },
-        // Define as cores personalizadas que você quer usar
-        tabBarActiveTintColor: '#FF0000',   // Cor quando focado (focused)
-        tabBarInactiveTintColor: '#00FF00', // Cor quando desfocado
       })}
     >
       <Tab.Screen
         name="home"
         component={HomeScreen}
-        // options={{ tabBarShowLabel: false }} 
-        options={{ title: 'Home' }}
+        options={{
+          title: 'Início',
+        }}
       />
-      <Tab.Screen name="perfil" component={PerfilScreen} />
-      <Tab.Screen name="itens" component={ItensScreen} />
+
+      <Tab.Screen
+        name="itens"
+        component={ItemScreen}
+        options={{
+          title: 'Agendamentos',
+        }}
+      />
+
+      <Tab.Screen
+        name="perfil"
+        component={PerfilScreen}
+        options={{
+          title: 'Perfil',
+        }}
+      />
     </Tab.Navigator>
   );
 }
